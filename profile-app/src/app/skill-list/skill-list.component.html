@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        Skill Sets
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered bg-dark text-white">
+            <thead>
+                <tr>
+                    <th>Skill Type</th>
+                    <th>Skill Sets</th>
+                </tr>                
+            </thead>
+            <tbody>
+                <tr *ngFor="let skill of skillList">
+                    <td>{{skill.skill}}</td>
+                    <td>
+                        <ul *ngFor="let skillTypes of skill.skillSets">
+                            <li>{{skillTypes}}</li>
+                        </ul>                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
