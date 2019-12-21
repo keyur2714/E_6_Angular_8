@@ -1,0 +1,65 @@
+<div class="row" *ngIf="message !== ''">
+    <div class="col alert alert-info">
+        {{message}}
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-4">
+        Roll No :
+    </div>
+    <div class="col-sm-4">
+        <input type="text" name=rollNo [(ngModel)]="student.rollNo" class="form-control" [readonly]="isUpdate"/>
+    </div>
+</div>
+<div class="row form-group">
+        <div class="col-sm-4">
+            Name :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name=name [(ngModel)]="student.name" class="form-control"/>
+        </div>
+</div>
+<div class="row form-group">
+        <div class="col-sm-4">
+            Mobile No :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name=mobileNo [(ngModel)]="student.mobileNo" class="form-control"/>
+        </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <button class="btn btn-info" (click)="save()" *ngIf="!isUpdate">Save</button>
+        <button class="btn btn-info" (click)="update()" *ngIf="isUpdate">Update</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header bg-info">
+                Manage Students
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped bg-secondary">
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Mobile No</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of studentList" (click)="edit(student.rollNo)" [ngClass]="selectedRollNo === student.rollNo ? 'selected' : ''">
+                            <td>{{student.rollNo}}</td>
+                            <td>{{student.name}}</td>
+                            <td>{{student.mobileNo}}</td>
+                            <td><button class="btn btn-danger" (click)="delete(student.rollNo)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,15 +9,15 @@
 	Flow of Execution with angular.json --- Done
 	create component --- Done
 	play with component --- Done
-	inbuilt dirctive / ngIf / ngFor / ngClass ---
+	inbuilt dirctive / ngIf / ngFor / ngClass --- Done
 	create component without html --- Done
 	create model class --- Done
 	create Array of string/numbers --- Done
 	create Array of Objects ---Done
-	simple application of CRUD with in memory/array --- 
+	simple application of CRUD with in memory/array --- Done
 	Data Binding
-		- one way -- 
-		- two way -- 
+		- one way -- Done
+		- two way -- Done 
 	2. Component Communications -- 40%
 		- @Input() : Parent to child / property --- 
 		- @Output() : Child to Parent / Events --- 
