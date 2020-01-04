@@ -1,0 +1,10 @@
+<div class="row form-group">
+    <div class="col">
+        <select name="select" class="form-control" (change)="setSelectedItem()" [(ngModel)]="selectedItem">
+            <option value="-1">-:{{label}}:-</option>
+            <option *ngFor="let data of dataList" [ngValue]="data">
+                {{data.desc}}
+            </option>
+        </select>
+    </div>
+</div>

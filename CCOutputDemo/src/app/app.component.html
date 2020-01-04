@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-message 
+      [message]="'Hello'" 
+      (getFormattedMessage)="getMessage($event)"
+      >
+      </app-message>
+    </div>
+    <div class="col">
+      <p class="alert alert-info">
+        {{newMessage}}
+      </p>
+    </div>
+  </div>
+  <app-my-dropdown
+    [dataList]="dataList"
+    [selectedItem]="selectedName"
+    [label]="label"
+    (getSelectedItem)="getItem($event)"
+  >    
+  </app-my-dropdown>
+  <div class="row form-group">
+    <div class="col">
+      Selected Item is - {{selectedName.desc}}
+    </div>
+  </div>
+
+  <app-my-dropdown
+    [dataList]="countryList"
+    [selectedItem]="selectedCountry"
+    [label]="'Select Country'"
+    (getSelectedItem)="getSelectedCountry($event)"
+  >    
+  </app-my-dropdown>
+  <div class="row form-group">
+    <div class="col">
+      Selected Country is {{selectedCountry.desc}}
+    </div>
+  </div>
+</div>
