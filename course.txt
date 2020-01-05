@@ -18,14 +18,14 @@
 	Data Binding
 		- one way -- Done
 		- two way -- Done 
-	2. Component Communications -- 40%
-		- @Input() : Parent to child / property --- 
-		- @Output() : Child to Parent / Events --- 
-		- @ViewChild() : Ref of Elements/coponent selectors --- 
+	2. Component Communications -- 
+		- @Input() : Parent to child / property --- Done
+		- @Output() : Child to Parent / Events ---  Done
+		- @ViewChild() : Ref of Elements/coponent selectors --- Done
 	3. Custom Directives
-		- Simple Directive -- 
-		- Attribute Directive -- 
-		- Structural Directive --- 
+		- Simple Directive -- Done
+		- Attribute Directive -- Done
+		- Structural Directive --- Done
 	4. Forms
 		- Template Driven Forms  - 
 		- Reactive  Forms - 

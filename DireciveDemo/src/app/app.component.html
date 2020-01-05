@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Directive Demo</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p *appMyLoop="length" appMyStyle [color]="'blue'" [fontSize]="'35px'">Radhe Krishna...!</p>
+    </div>
+    <div class="col" *appMyIf="1===1;extra:1">
+      <h2 appMyStyle>Good Morning...!</h2>
+    </div>
+  </div>
+  <ng-template [appMyIf]="1===2">
+    <h2 appMyStyle>Good Afternoon...!</h2>
+  </ng-template>
+  <div *ngIf="age >= 18 then ifBlock;else elseBlock"></div>
+  <ng-template #ifBlock>
+    You are Eligible for Vote.
+  </ng-template>
+  <ng-template #elseBlock>
+    You are not Eligible for Vote.
+  </ng-template>
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered">
+        <thead>
+          <tr appMyStyle>
+            <th>Name</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr appMyStyle [color]="'green'" [fontSize]="'15px'">
+            <td>Keyur</td>
+            <td>Pune</td>
+          </tr>
+          <tr appMyStyle [color]="'red'" [fontSize]="'15px'">
+            <td>denish</td>
+            <td>Surat</td>
+          </tr>
+          <tr appMyStyle [color]="'green'" [fontSize]="'15px'">
+            <td>vinit</td>
+            <td>Mumbai</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
