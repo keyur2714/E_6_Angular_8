@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <h1 #lbl>Hello Radhe Krishna...!</h1>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input type="text" #str class="form-control">
+    </div>    
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-string-util [result]="res"></app-string-util> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-success" (click)="upper()">Upper Case</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary" (click)="lower()">Lower Case</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-warning" (click)="reverse()">Reverse</button>
+    </div>
+  </div>
+</div>
