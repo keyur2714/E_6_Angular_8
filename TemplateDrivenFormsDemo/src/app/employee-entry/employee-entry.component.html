@@ -1,0 +1,125 @@
+<form #frm="ngForm" (ngSubmit)="save(frm)">
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <sup>*</sup>Name :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="name" class="form-control" [(ngModel)]="employee.name" required minlength="3" #name=ngModel/>
+        </div>        
+        <div class="col-sm-4" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors['required']">
+                Name is required field.
+            </div>
+            <div *ngIf="name.errors['minlength']">
+                Name is Min 3 Char required.
+            </div>
+        </div>        
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <sup>*</sup>City :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="city" class="form-control" [(ngModel)]="employee.city" required #city=ngModel/>
+        </div>        
+        <div class="col-sm-4" *ngIf="city.touched && city.invalid">
+            City is required field.
+        </div>        
+    </div>
+    <div class="row form-group">
+            <div class="col-sm-4">
+                <sup>*</sup>Mobile No :
+            </div>
+            <div class="col-sm-4">
+                <input type="text" name="mobileNo" class="form-control" [(ngModel)]="employee.mobileNo" required pattern="^[0-9]+$" maxlength="10" minlength="10" #mobileNo=ngModel/>
+            </div>        
+            <div class="col-sm-4" *ngIf="mobileNo.touched && mobileNo.invalid">
+                <div *ngIf="mobileNo.errors['required']">
+                    Mobile No is required field.
+                </div>    
+                <div *ngIf="mobileNo.errors['minlength'] || mobileNo.errors['maxlength']">
+                    Mobile No should 10 digits.
+                </div>    
+                <div *ngIf="mobileNo.errors['pattern']">
+                    Mobile No is Invalid.
+                </div>    
+            </div>        
+        </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <sup>*</sup>Gender :
+        </div>
+        <div class="col-sm-4">
+            <input type="radio" name="gender" class="radio-inline" [(ngModel)]="employee.gender" value="M" #gender=ngModel/>Male
+            <input type="radio" name="gender" class="radio-inline" [(ngModel)]="employee.gender" value="F" #gender=ngModel/>FeMale
+        </div>                
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <sup>*</sup>Salary :
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="salary" class="form-control" [(ngModel)]="employee.salary" required pattern="^[0-9]+[.]*[0-9]+$" #salary=ngModel/>
+        </div>        
+        <div class="col-sm-4" *ngIf="salary.touched && salary.invalid">
+            <div *ngIf="salary.errors['required']">
+                Salary is required field.
+            </div>
+            <div *ngIf="salary.errors['pattern']">
+                Only Digits Allowed in salary.
+            </div>
+        </div>        
+    </div>    
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <sup>*</sup>Department :
+        </div>
+        <div class="col-sm-4">
+            <select name="department" class="form-control" [(ngModel)]="employee.dept">
+                <option value="-1">-:Select Department:-</option>
+                <option value="IT">Information Technoloy</option>
+                <option value="PC">Purchase</option>
+                <option value="SL">Sales</option>
+                <option value="HR">Human Resource</option>
+            </select>
+        </div>                
+    </div>    
+    <div class="row">
+        <div class="col-sm-4">
+            <button class="btn btn-info" [disabled]="frm.invalid">Submit</button>
+            <button class="btn btn-default" type="button" (click)="reset()">Reset</button>
+        </div>
+    </div>
+</form>
+<div class="row" *ngIf="isSubmitted">
+    <div class="col">
+        <table class="table table-bordered bg-dark text-info">
+            <tbody>
+                <tr>
+                    <th>Name </th>
+                    <td>{{employee.name}}</td>                    
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{employee.city}}</td>
+                </tr>
+                <tr>
+                    <th>Mobile No</th>
+                    <td>{{employee.mobileNo}}</td>
+                </tr>
+                <tr>
+                    <th>Salary</th>
+                    <td>{{employee.salary}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{employee.gender === 'M' ? 'Male' : 'Female'}}</td>
+                </tr>
+                <tr>
+                    <th>Department</th>
+                    <td>{{employee.dept}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
