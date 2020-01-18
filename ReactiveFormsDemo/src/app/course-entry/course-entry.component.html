@@ -1,0 +1,85 @@
+<form [formGroup]="courseEntryForm" (ngSubmit)="save()">
+    <div class="row form-group">
+        <div class="col-sm-4">
+            Course Code:
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="courseCode" formControlName="courseCode" class="form-control">
+        </div>
+        <div class="col-sm-4" *ngIf="courseEntryForm.get('courseCode').invalid && courseEntryForm.get('courseCode').touched">
+            Course Code is Invalid.
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            Course Name:
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="courseName" formControlName="courseName" class="form-control">
+        </div>
+        <div class="col-sm-4" *ngIf="courseEntryForm.get('courseName').invalid && courseEntryForm.get('courseCode').touched">
+            <div *ngIf="courseEntryForm.get('courseName').errors['required']">
+                Course Name is required.
+            </div>
+            <div *ngIf="courseEntryForm.get('courseName').errors['minlength']">
+                Course Name is min 3 character.
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            Fees:
+        </div>
+        <div class="col-sm-4">
+            <input type="text" name="fees" formControlName="fees" class="form-control">
+        </div>
+        <div class="col-sm-4" *ngIf="courseEntryForm.get('fees').invalid && courseEntryForm.get('fees').touched">
+            <div *ngIf="courseEntryForm.get('fees').errors['required']">
+                Course Fees is required.
+            </div>
+            <div *ngIf="courseEntryForm.get('fees').errors['pattern']">
+                Only Digits Allowed in fees.
+            </div>
+        </div>
+    </div>
+    <div formArrayName="trainers">
+        <div class="row form-group" *ngFor="let control of courseEntryForm.get('trainers').controls;let i=index">
+            <div class="col-sm-4">Trainer - {{i+1}} </div>
+            <div class="col-sm-4"><input type="text" class="form-control" [formControlName]="i"></div>
+            <div class="col-sm-4"><button class="btn btn-success" type="button" (click)="addMore()">Add More</button></div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <button class="btn btn-info" [disabled]="courseEntryForm.invalid">Save</button>
+        </div>        
+    </div>
+</form>
+<div class="row" *ngIf="isSubmitted">
+    <div class="col">
+        <table class="table table-bordered">
+            <div class="tbody">
+                <tr>
+                    <th>Course Code</th>
+                    <td>{{course.courseCode}}</td>
+                </tr>
+                <tr>
+                    <th>Course Name</th>
+                    <td>{{course.courseName}}</td>
+                </tr>
+                <tr>
+                    <th>Fees</th>
+                    <td>{{course.fees}}</td>
+                </tr>
+                <tr>
+                    <th>Trainers</th>
+                    <td>
+                        <li *ngFor="let trainer of course.trainers">
+                            {{trainer}}
+                        </li>
+                    </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+</div>
