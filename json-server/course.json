@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "code": "ANG",
+      "courseName": "Angular",
+      "fees": 13800
+    },
+    {
+      "id": 2,
+      "code": "PYT",
+      "courseName": "Python",
+      "fees": 12800
+    },
+    {
+      "id": 3,
+      "code": "JAVA",
+      "courseName": "Java",
+      "fees": 15500
+    }
+  ],
+  "students":[
+	{
+		"id": 27,
+		"name": "keyur",
+		"city": "pune"
+	},
+	{
+		"id": 26,
+		"name": "denish",
+		"city": "surat"
+	},
+	{
+		"id": 44,
+		"name": "vinit",
+		"city": "mumbai"
+	}
+  ]
+}
