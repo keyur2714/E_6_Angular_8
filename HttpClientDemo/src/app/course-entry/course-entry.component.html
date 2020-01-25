@@ -1,0 +1,46 @@
+<div class="row form-group" *ngIf="message !== ''">
+    <div class="col alert alert-info">{{message}}</div>
+</div>
+<form #frm=ngForm (ngSubmit)="save(frm)">
+    <div class="row form-group">
+        <div class="col-sm-4">Course Id:</div>
+        <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="course.id" name="id" #id=ngModel required [readonly]="isUpdate"/></div>
+        <div class="col-sm-4" *ngIf="id.invalid && id.touched">
+            Course Id is Mandatory Field.
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">Course Code:</div>
+        <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="course.code" name="code" #code=ngModel required /></div>
+        <div class="col-sm-4" *ngIf="code.invalid && code.touched">
+            Course Code is Mandatory Field.
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">Course Name:</div>
+        <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="course.courseName" name="courseName" #courseName=ngModel required /></div>
+        <div class="col-sm-4" *ngIf="courseName.invalid && courseName.touched">
+            Course Name is Mandatory Field.
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4">Fees:</div>
+        <div class="col-sm-4"><input type="text" class="form-control" [(ngModel)]="course.fees" name="fees" #fees=ngModel required pattern="^[0-9]+$"/></div>
+        <div class="col-sm-4" *ngIf="fees.invalid && fees.touched">
+            <div *ngIf="fees.errors['required']">
+                    Fees is Mandatory Field.
+            </div>
+            <div *ngIf="fees.errors['pattern']">
+                    Only Digits allowed in Fees.
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-4" *ngIf="! isUpdate">
+            <button class="btn btn-info">Save</button>
+        </div>
+        <div class="col-sm-4" *ngIf="isUpdate">
+            <button class="btn btn-info">Update</button>
+        </div>
+    </div>
+</form>

@@ -10,30 +10,36 @@
       "id": 2,
       "code": "PYT",
       "courseName": "Python",
-      "fees": 12800
+      "fees": "13600"
     },
     {
       "id": 3,
       "code": "JAVA",
       "courseName": "Java",
       "fees": 15500
+    },
+    {
+      "id": "4",
+      "code": "BD",
+      "courseName": "Big Data",
+      "fees": "15700"
     }
   ],
-  "students":[
-	{
-		"id": 27,
-		"name": "keyur",
-		"city": "pune"
-	},
-	{
-		"id": 26,
-		"name": "denish",
-		"city": "surat"
-	},
-	{
-		"id": 44,
-		"name": "vinit",
-		"city": "mumbai"
-	}
+  "students": [
+    {
+      "id": 27,
+      "name": "keyur",
+      "city": "pune"
+    },
+    {
+      "id": 26,
+      "name": "denish",
+      "city": "surat"
+    },
+    {
+      "id": 44,
+      "name": "vinit",
+      "city": "mumbai"
+    }
   ]
 }
