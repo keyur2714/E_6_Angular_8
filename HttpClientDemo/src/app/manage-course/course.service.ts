@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Course } from './course.model';
 import { Injectable } from '@angular/core';
 @Injectable()
@@ -7,7 +7,13 @@ export class CourseService{
 
     appUrl : string = 'http://localhost:3000/courses';
 
+    corseNames : string[] = ["Angular","Java","Spring"];
+
     constructor(private httpClient : HttpClient){
+    }
+
+    getFixCourse() : Observable<string[]>{
+        return of(this.corseNames);
     }
 
     getAllCourses() : Observable<Course[]>{
