@@ -38,6 +38,9 @@ export class ManageCourseComponent implements OnInit {
       (data : Course)=>{
         this.course = data;
         this.isUpdate = true;
+      },
+      (error)=>{
+        alert(error.status+" "+error.statusText+" "+error.message);
       }
     )
   }

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { Course } from './course.model';
 import { Injectable } from '@angular/core';
+import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class CourseService{
 
@@ -21,7 +22,19 @@ export class CourseService{
     }
 
     getCourseById(id:number) : Observable<Course>{
-        return this.httpClient.get<Course>(this.appUrl+"/"+id);
+        return this.httpClient.get<Course>(this.appUrl+"/"+id+"/course").pipe(
+            map(course=>{
+                course.courseName = course.courseName.toUpperCase();
+                return course;
+            }),
+            catchError(error=> {
+                    console.log(error.status);
+                    console.log(error.statusText);
+                    console.log(error.message);
+                    return throwError(error)
+                }
+            )
+        )
     }
 
     save(course : Course) : Observable<Course> {
