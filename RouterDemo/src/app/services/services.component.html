@@ -1,1 +1,40 @@
-<p>services works!</p>
+<div class="row">
+    <div class="col">
+        <button class="btn btn-success" (click)="add()">Add</button>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col">
+        <table class="table table-striped bg-dark text-info">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Coed</th>
+                    <th>Description</th>
+                    <th>Quote Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let service of services">
+                    <td>
+                        <button class="btn btn-success m-1" [routerLink]="['services',service.id]">{{service.id}}</button>
+                        <a class="btn btn-info m-1" [routerLink]="['/services',service.id]">{{service.id}}</a>                        
+                    </td>
+                    <td>{{service.code}}</td>
+                    <td>{{service.description}}</td>
+                    <td>{{service.basicQuotePrice}}</td>
+                    <td>
+                        <button class="btn btn-success m-1" (click)="edit(service.id)">Edit</button>
+                        <button class="btn btn-danger m-1" (click)="delete(service.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>            
+    </div>    
+</div>
+<div class="row form-group">
+    <div class="col">
+        <router-outlet></router-outlet>
+    </div>
+</div>

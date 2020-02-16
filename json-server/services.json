@@ -1,0 +1,46 @@
+{
+  "users" : [
+	{
+		"id": 1,
+		"username": "keyur",
+		"password": "India@27",
+		"name": "keyur thakor",
+		"role": "ADMIN",
+		"token": "keyurjava27"
+	},
+	{
+		"id": 2,
+		"username": "denish",
+		"password": "Bharat@26",
+		"name": "denish patel",
+		"role": "USER",
+		"token": "denishjava26"
+	}	
+  ],	
+  "services": [
+    {
+      "id": 1,
+      "code": "WD",
+      "description": "Web Development",
+      "basicQuotePrice": "6000"
+    },
+    {
+      "id": 2,
+      "code": "TR",
+      "description": "Training",
+      "basicQuotePrice": 15000
+    },
+    {
+      "id": 3,
+      "code": "WMGT",
+      "description": "Work Management",
+      "basicQuotePrice": 7000
+    },
+    {
+      "id": "4",
+      "code": "CS",
+      "description": "Computer Science",
+      "basicQuotePrice": "3005"
+    }
+  ]
+}
